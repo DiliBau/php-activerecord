@@ -63,8 +63,8 @@ ActiveRecord\Config::initialize(function($cfg)
 	
 	if ($GLOBALS['show_warnings']  && !isset($GLOBALS['show_warnings_done']))
 	{ 
-		if (!extension_loaded('memcache'))
-			echo "(Cache Tests will be skipped, Memcache not found.)\n";
+		if (!extension_loaded('memcache') && !extension_loaded('apc' ) )
+			echo "(Cache Tests will be skipped, neither Memcache nor APC were found.)\n";
 	}
 
 	date_default_timezone_set('UTC');
